@@ -45,7 +45,7 @@ class RequestCreateView(LoginRequiredMixin, CreateView):
 
 class DownloadPDF(View):
     def get(self, request, id=None, *args, **kwargs):
-        qs = Request.objects.filter(id__iexact=id)
+        qs = Request.objects.filter(id=id)
         if not qs.exists():
             raise Http404
         obj = qs.first()
