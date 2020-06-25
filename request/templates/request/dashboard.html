@@ -1,0 +1,61 @@
+{% extends 'request/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Dashboard file -->
+    <div class="container">
+      <div class="row mt-5 mb-4 pt-5">
+        <div class="col-sm">
+          <h2>Dashboard</h2>
+        </div>
+        <div class="col-sm">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <a href="{% url 'apply' %}"><button class="btn btn-primary btn-lg">+ New Application</button></a>
+        </div>
+        <div class="col-sm">
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-2 mb-5 pb-5 mt-5">
+        {% for request in requests %}
+          <div class="col mb-4">
+            <div class="card
+            {% if  request.pending == False and request.accepted == True %} text-white bg-success
+            {% elif request.pending == False and request.accepted == False %} text-white bg-danger
+            {% else %} bg-warning
+            {% endif %}">
+              <div class="card-body text-center">
+                <p class="card-title">{{ request.id }}</p>
+                <p class="card-text"><small>Application ID</small></p>
+                <p class="card-title">
+                  {% if  request.pending == False and request.accepted == True %} Accepted
+                  {% elif request.pending == False and request.accepted == False %} Rejected
+                  {% else %} Pending
+                  {% endif %}
+                </p>
+                <p class="card-text"><small>Status</small></p>
+              </div>
+              <div class="row">
+                <div class="col-sm">
+                </div>
+                <div class="col-sm text-right mr-3 mb-3">
+                  <a href="{% url 'download' request.id %}"
+                     {% if request.pending == True %}
+                     style="color: black"
+                     {% elif request.pending == False %}
+                      class="text-white"
+                      {% endif %}
+                  >
+                    <i class="fas fa-file-download fa-2x"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- End Dashboard file -->
+{% endblock %}

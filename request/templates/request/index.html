@@ -1,0 +1,98 @@
+{% extends 'request/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Index file -->
+    <div class="container">
+
+      <div class="row my-5 pb-5">
+        <div class="col-sm my-auto justify-content-center">
+          <h1>Project funding, simplified.</h1>
+          <h4>Create innovative project and apply for the funding with a single click.</h4>
+          <br>
+          <a href="{% url 'dashboard' %}"><button class="btn btn-primary btn-lg">Apply</button></a>
+        </div>
+        <div class="col-sm my-auto justify-content-center col-img">
+            <img class="img-fluid" src="{% static 'images/index.png' %}">
+        </div>
+      </div>
+
+      <div class="row my-5 pt-5 text-center">
+        <div class="col-sm">
+          <h2>How it works</h2>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-2 mb-5 pb-5">
+        <div class="col mb-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Innovate</h5>
+              <p class="card-text">Bring something innovative to us and if our member liked it, then get funding instantly.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Shares</h5>
+              <p class="card-text">We want only 30% of your profit if you managed to bring your product in the market.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-5 pt-5 text-center">
+        <div class="col-sm">
+          <h2>Trusted by many students</h2>
+        </div>
+      </div>
+
+      <div class="row mb-5 pb-5">
+        <div class="col-sm my-auto justify-content-center">
+          <div class="row row-cols-1 row-cols-md-2">
+            <div class="col mb-4">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title">{{ project_funded }}</h5>
+                  <p class="card-text">Project funded</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-4">
+              <div class="card text-center">
+                <div class="card-body">
+                  <h5 class="card-title">{{ total_funding }}</h5>
+                  <p class="card-text">Total funding</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- End Index file -->
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+          <div class="row py-5 text-footer">
+            <div class="col-sm pt-3">
+              <h3 class="link-title">Follow Us</h3><br>
+              <p class="link-social">Twitter</p>
+              <p class="link-social">Linkedin</p>
+            </div>
+            <div class="col-sm pt-3">
+              <h3 class="link-title">Credits</h3><br>
+              <a target="_blank" href="https://icons8.com/ouch"><p class="link-social">illustration by Ouch.pics</p></a>
+              <a target="_blank" href="https://icons8.com" class="link-social">Icons by Icons8</a>
+            </div>
+            <div class="col-sm pt-3">
+              <h1>Starter</h1>
+              <p class="link">&copy; <span id="year">year</span> All Rights Reserved <br>Made with <span id="heart">❤</span> by Rohan</p>
+            </div>
+          </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+{% endblock %}

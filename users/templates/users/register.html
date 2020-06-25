@@ -1,0 +1,34 @@
+{% extends 'request/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+  	<div class="container">
+      <div class="row mb-5">
+        <div class="col-sm my-auto justify-content-center col-img">
+            <img class="img-fluid" id="img-register" src="{% static 'images/sign-up.png' %}">
+        </div>
+        <div class="col-sm my-auto justify-content-center">
+        	<div class="row">
+        		<div class="col-sm mb-3">
+        			<h1>Sign Up</h1>
+        		</div>
+        	</div>
+			<form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form|crispy }}
+                </div>
+			    <button class="btn btn-primary" type="submit">Register</button>
+			</form>
+        	<div class="row">
+        		<div class="col-sm mt-3">
+        			<small>
+                        Already have an account?
+                        <a href="{% url 'login' %}">Sign in</a>
+                    </small>
+        		</div>
+        	</div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

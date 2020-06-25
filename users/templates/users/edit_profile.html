@@ -1,0 +1,25 @@
+{% extends 'request/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+  	<div class="container">
+      <div class="row mb-5 p-3">
+        <div class="col-sm my-auto justify-content-center">
+        	<div class="row">
+        		<div class="col-sm mb-3">
+        			<h2>Edit Profile</h2>
+        		</div>
+        	</div>
+			<form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                </div>
+			    <button class="btn btn-primary mt-3" type="submit">Save</button>
+			</form>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+

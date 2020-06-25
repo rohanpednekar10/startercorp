@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+    <style type="text/css">
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+      }
+      p {
+        font-family: 'Montserrat', sans-serif;
+      }
+      table, th, td {
+        border: 1px solid black;
+        font-family: 'Fira Code', monospace;
+      }
+      th {
+        font-size: 175%;
+        font-weight: 700;
+        text-align: center;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+      .document-title {
+        background-color: lightgrey;
+      }
+      .field-title {
+        text-align: center;
+        font-weight: bold;
+      }
+      .field-value, .field-title{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 110%;
+      }
+      .field-value{
+        padding-left: 5px;
+      }
+    </style>
+
+    <title>Starter</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Starter</h1>
+          <p>&copy; {{ current_year }} All Rights Reserved</p>
+        </div>
+      </div>
+      <div class="row">
+        <table>
+          <tbody>
+            <tr class="document-title">
+              <th colspan="8">APPLICANT'S DETAILS</th>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">Username</td>
+              <td class="field-value" colspan="6">@{{ username }}</td>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">First Name</td>
+              <td class="field-value" colspan="2">{{ first_name }}</td>
+              <td class="field-title" colspan="2">Last Name</td>
+              <td class="field-value" colspan="2">{{ last_name }}</td>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">Email</td>
+              <td class="field-value" colspan="2">{{ email }}</td>
+              <td class="field-title" colspan="2">Aadhar</td>
+              <td class="field-value" colspan="2">{{ aadhar }}</td>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">College</td>
+              <td class="field-value" colspan="6">{{ college }}</td>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">Year</td>
+              <td class="field-value" colspan="2">{{ year }}</td>
+              <td class="field-title" colspan="2">Branch</td>
+              <td class="field-value" colspan="2">{{ branch }}</td>
+            </tr>
+            <tr class="document-title">
+              <th colspan="8">FUNDING PROPOSAL DETAILS</th>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">Application No.</td>
+              <td class="field-value" colspan="6">{{ application_no }}</td>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">Title</td>
+              <td class="field-value" colspan="6">{{ title }}</td>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">Abstract</td>
+              <td class="field-value" colspan="6">{{ abstract }}</td>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">Hardware Requirement</td>
+              <td class="field-value" colspan="6">{{ hardware }}</td>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">Sofware Required</td>
+              <td class="field-value" colspan="6">{{ software }}</td>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">Budget (In Rupees)</td>
+              <td class="field-value" colspan="6">{{ budget }}</td>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">Date of Application</td>
+              <td class="field-value" colspan="6">{{ date|date:"F d, Y" }}</td>
+            </tr>
+            <tr>
+              <td class="field-title" colspan="2">Status</td>
+              <td class="field-value" colspan="6">
+                {% if accepted == True and pending == False %} Accepted
+                {% elif accepted == False and pending == True %} Pending
+                {% elif accepted == False and pending == False %} Rejected
+                {% endif %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
